@@ -12,7 +12,11 @@ namespace BusinessLayer.Concrete
     {
         GenericRepository<Category> repo = new GenericRepository<Category>();
 
-        public List<Category> GetAllBL ()
+        public List<Category> GetAllBL()
+        {
+            return repo.List().Where(p=>p.CategoryStatus == true).ToList();
+        }
+        public List<Category> GetAllSartliBL()
         {
             return repo.List();
         }
