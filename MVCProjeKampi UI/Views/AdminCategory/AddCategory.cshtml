@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.Category
+
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="color: red">Kategori Ekleme</h2>
+
+@using (Html.BeginForm("AddCategory","AdminCategory",FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-group">
+
+    @Html.Label("Kategori Adı")
+    @Html.TextBoxFor(x => x.CategoryName)
+    @Html.ValidationMessageFor(x => x.CategoryName)
+    <br /><br />
+    @Html.Label("Açıklama")
+    @Html.TextBoxFor(x => x.CategoryDescription)
+    @Html.ValidationMessageFor(x => x.CategoryDescription)
+    <br /><br />
+    @Html.Label("Aktif / Pasif")
+    @Html.CheckBoxFor(x => x.CategoryStatus)
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</div>
