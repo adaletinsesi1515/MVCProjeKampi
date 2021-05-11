@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-success">
+        <div class="inner">
+            <h3>@ViewBag.kategorisayisi<sup style="font-size: 20px"></sup></h3>
+
+            <p>Toplam Kategori Sayısı</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+        </div>
+
+
+    </div>
+
+    <div class="small-box bg-success">
+        <div class="inner">
+            <h3>@ViewBag.basliksay<sup style="font-size: 20px"></sup></h3>
+
+            <p>Başlık tablosunda "yazılım" kategorisine ait başlık sayısı</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+        </div>
+
+    </div>
+
+    <div class="small-box bg-success">
+        <div class="inner">
+            <h3>@ViewBag.yazarsay<sup style="font-size: 20px"></sup></h3>
+
+            <p>Yazar adında 'a' harfi geçen yazar sayısı</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+        </div>
+
+    </div>
+
+    <div class="small-box bg-success">
+        <div class="inner">
+            <h3>@ViewBag.TrendKategori<sup style="font-size: 20px"></sup></h3>
+
+            <p>En fazla başlığa sahip kategori adı</p>
+
+        </div>
+        <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+        </div>
+
+    </div>
+
+    <div class="small-box bg-success">
+        <div class="inner">
+            <h3>@ViewBag.farknedir<sup style="font-size: 20px"></sup></h3>
+
+            <p>
+                Kategori tablosunda durumu true (@ViewBag.truedurum) olan kategoriler  ile false (@ViewBag.falsedurum) olan kategoriler arasındaki sayısal fark
+            </p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+        </div>
+
+    </div>
+
+</div>
+

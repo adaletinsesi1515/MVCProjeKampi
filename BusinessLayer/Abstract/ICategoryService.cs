@@ -14,6 +14,7 @@ namespace BusinessLayer.Abstract
         void CategoryAddBL(Category category);                
         void CategoryDelBl(Category category);
         void CategoryUpdate(Category category);
+        void Sayi();
         
     }
 }

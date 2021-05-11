@@ -46,9 +46,14 @@ namespace BusinessLayer.Concrete
         {
             return _categoryDal.List(x=>x.CategoryStatus==true);
         }
-              
 
-       
+        public void Sayi()
+        {
+            _categoryDal.List(p => p.CategoryStatus == true).Count();
+        }
+
+
+
 
 
 
