@@ -9,7 +9,10 @@ namespace BusinessLayer.Abstract
 {
     public interface ICategoryService
     {
+        Category GetById(int id);
         List<Category> GetList();
-        void CategoryAddBL(Category category);
+        void CategoryAddBL(Category category);                
+        void CategoryDelBl(Category category);
+        void CategoryUpdate(Category category);
     }
 }

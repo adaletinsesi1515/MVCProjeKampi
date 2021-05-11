@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete.Repositories
 {
-    public class GenericRepository<T> : IRepository<T> where T : class
+    public class GenericRepository<T> : IRepository<T> where T : class        
     {
         Context db = new Context();
         DbSet<T> _object;
@@ -22,6 +22,11 @@ namespace DataAccessLayer.Concrete.Repositories
         {
             _object.Remove(p);
             db.SaveChanges();
+        }
+
+        public T Get(Expression<Func<T, bool>> filter)
+        {
+            return _object.SingleOrDefault(filter);
         }
 
         public void Insert(T p)
@@ -42,7 +47,11 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Update(T p)
         {
-            db.SaveChanges();
+            
+                var updatedEntity = db.Entry(p);
+                updatedEntity.State = EntityState.Modified;
+                db.SaveChanges();
+            
         }
     }
 }
