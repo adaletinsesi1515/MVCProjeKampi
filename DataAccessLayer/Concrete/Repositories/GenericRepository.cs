@@ -45,7 +45,7 @@ namespace DataAccessLayer.Concrete.Repositories
             return _object.Where(filter).ToList();
         }
 
-        public void Update(T p)
+               public void Update(T p)
         {
             
                 var updatedEntity = db.Entry(p);

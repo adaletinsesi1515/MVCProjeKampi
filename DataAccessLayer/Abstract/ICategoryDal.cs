@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface ICategoryDal : IRepository<Category>
     {
+        object Where(Func<object, bool> p);
     }
 }

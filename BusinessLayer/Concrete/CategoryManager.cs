@@ -41,10 +41,18 @@ namespace BusinessLayer.Concrete
             return _categoryDal.Get(x => x.CategoryID == id);
         }
 
+      
         public List<Category> GetList()
         {
             return _categoryDal.List(x=>x.CategoryStatus==true);
         }
+              
+
+       
+
+
+
+
 
 
 
