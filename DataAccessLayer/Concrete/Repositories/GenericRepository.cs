@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete.Repositories
 {
-    public class GenericRepository<T> : IRepository<T> where T : class        
+    public class GenericRepository<T> : IRepository<T> where T : class
     {
         Context db = new Context();
         DbSet<T> _object;
@@ -20,7 +20,8 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Delete(T p)
         {
-            _object.Remove(p);
+            var deletedEntity = db.Entry(p);
+            deletedEntity.State = EntityState.Deleted;
             db.SaveChanges();
         }
 
@@ -31,7 +32,8 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public void Insert(T p)
         {
-            _object.Add(p);
+            var addedEntity = db.Entry(p);
+            addedEntity.State = EntityState.Added;
             db.SaveChanges();
         }
 
@@ -45,13 +47,12 @@ namespace DataAccessLayer.Concrete.Repositories
             return _object.Where(filter).ToList();
         }
 
-               public void Update(T p)
+        public void Update(T p)
         {
-            
-                var updatedEntity = db.Entry(p);
-                updatedEntity.State = EntityState.Modified;
-                db.SaveChanges();
-            
+            var updatedEntity = db.Entry(p);
+            updatedEntity.State = EntityState.Modified;
+            db.SaveChanges();
+
         }
     }
 }
