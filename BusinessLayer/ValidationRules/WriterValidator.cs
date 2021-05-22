@@ -18,8 +18,10 @@ namespace BusinessLayer.ValidationRules
             RuleFor(x => x.WriterName).MaximumLength(50).WithMessage("Yazar adını en fazla 50 karakter olacak şekilde giriniz!!!");
             RuleFor(x => x.WriterAbout).NotEmpty().WithMessage("Hakkında alanını boş geçemezsiniz!!!");
             //Burayı daha sonra büyük A harfini de kapsar şekilde güncellememiz lazım
-            RuleFor(x => x.WriterAbout).Matches("a").WithMessage("Hakkında alanında mutlaka a harfi geçmelidir.");
+            //RuleFor(x => x.WriterAbout).Matches("a").WithMessage("Hakkında alanında mutlaka a harfi geçmelidir.");
             RuleFor(x => x.WriterMail).EmailAddress().WithMessage("Geçerli bir mail adresi giriniz");
+            RuleFor(x => x.WriterTitle).NotEmpty().WithMessage("Unvanı alanını boş geçemezsiniz!!!");
+
         }
     }
 }

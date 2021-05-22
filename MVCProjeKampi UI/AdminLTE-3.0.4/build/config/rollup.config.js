@@ -1,3 +1,4 @@
+
 import babel from 'rollup-plugin-babel'
 
 const pkg  = require('../../package')

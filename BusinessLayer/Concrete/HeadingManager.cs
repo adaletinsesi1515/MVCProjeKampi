@@ -1,8 +1,10 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +17,31 @@ namespace BusinessLayer.Concrete
         public HeadingManager(IHeadingDal headingDal)
         {
             _headingDal = headingDal;
+        }
+
+        public Heading GetById(int id)
+        {
+            return _headingDal.Get(x => x.HeadingID == id);
+        }
+
+        public List<Heading> GetList()
+        {
+            return _headingDal.List();
+        }
+
+        public void HeadingAddBL(Heading heading)
+        {
+            _headingDal.Insert(heading);
+        }
+
+        public void HeadingDelBl(Heading heading)
+        {
+            _headingDal.Delete(heading);
+        }
+
+        public void HeadingUpdBl(Heading heading)
+        {
+            _headingDal.Update(heading);
         }
     }
 }

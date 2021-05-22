@@ -90,14 +90,14 @@ const CardRefresh = (($) => {
 
       const overlayAddedEvent = $.Event(Event.OVERLAY_ADDED)
       $(this._element).trigger(overlayAddedEvent)
-    };
+    }
 
     _removeOverlay() {
       this._parent.find(this._overlay).remove()
 
       const overlayRemovedEvent = $.Event(Event.OVERLAY_REMOVED)
       $(this._element).trigger(overlayRemovedEvent)
-    };
+    }
 
 
     // Private
