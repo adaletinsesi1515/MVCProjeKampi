@@ -39,13 +39,11 @@
         @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.WriterPassword)
         <br />
-        <div class="col-6 text-center">
-            <img src="@item.WriterImage" width="128" height="128" class="img-circle img-fluid">
-        </div>
+      
 
-        @Html.Label("Yazar Resmi")
+        @*@Html.Label("Yazar Resmi")
         @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-group", type = "file" })
-        <br />
+        <br />*@
         @Html.Label("Yazar Unvanı")
         @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
         <div style="color:red">
