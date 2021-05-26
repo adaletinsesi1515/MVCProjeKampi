@@ -17,16 +17,16 @@
         <th>Yazar Adı</th>
     </tr>
     
-        @foreach (var item in Model)
-        {
-            <tr>
+    @foreach (var item in Model)
+    {
+        <tr>
             <td>@item.HeadingID</td>
             <td>@item.HeadingName</td>
             <td>@item.Category.CategoryName</td>
             <td>@item.Writer.WriterName @item.Writer.WriterSurname</td>
         </tr>
-        }
+    }
     
 
 </table>
-
+<a href="/Heading/AddHeading/" class="btn btn-success">Yeni Başlık Ekle</a>
