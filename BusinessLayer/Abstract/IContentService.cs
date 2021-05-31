@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,12 @@ namespace BusinessLayer.Abstract
 {
     public interface IContentService
     {
+        Content GetById(int id);
+        List<Content> GetList();
+        List<Content> GetListById(int Id);
+        void ContentAddBL(Content content);
+        void ContentDelBl(Content content);
+        void ContentUpdate(Content content);
+
     }
 }
