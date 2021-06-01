@@ -16,6 +16,8 @@ namespace EntityLayer.Concrete
         public string HeadingName { get; set; }
         public DateTime HeadingDate { get; set; }
 
+        public bool HeadingStatus { get; set; }
+
         //Başlık alanını Kategori alanı ile ilişkilendirme yaptık - 1e çok
         public int CategoryID { get; set; }
         public virtual Category Category { get; set; }

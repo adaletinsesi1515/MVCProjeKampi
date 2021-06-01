@@ -54,10 +54,35 @@ namespace MVCProjeKampi_UI.Controllers
             return RedirectToAction("Index");
         }
 
-
-        public ActionResult ContentByHeading()
+        [HttpGet]
+        public ActionResult EditHeading(int Id)
         {
-            return View();
+            List<SelectListItem> valuesCategory = (from x in cm.GetList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryID.ToString()
+                                                   }).ToList();
+            ViewBag.vlcat = valuesCategory;
+
+            var HeadingValues = hm.GetById(Id);
+            return View(HeadingValues);
+        }
+
+        [HttpPost]
+        public ActionResult EditHeading(Heading p)
+        {
+            p.HeadingStatus = true;
+            hm.HeadingUpdBl(p);
+            return RedirectToAction("Index");
+        }
+        
+        public ActionResult DeleteHeading(int Id)
+        {
+            var HeadingValue = hm.GetById(Id);
+            hm.HeadingDelBl(HeadingValue);
+            return RedirectToAction("Index");          
+
         }
     }
 }

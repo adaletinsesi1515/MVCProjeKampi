@@ -15,8 +15,9 @@ namespace EntityLayer.Concrete
         [StringLength(1000)]
         public string ContentValue { get; set; }
         public DateTime ContentDate { get; set; }
+        public bool ContentStatus { get; set; }
 
-        
+
         //Başlık ile İçerik alanı ile ilişki yaptık
         public int HeadingID { get; set; }
         public virtual Heading Heading { get; set; }
