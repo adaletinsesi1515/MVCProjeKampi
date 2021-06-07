@@ -13,6 +13,7 @@ namespace MVCProjeKampi_UI.Controllers
     {
         // GET: Contact
         ContactManager cm = new ContactManager(new EfContactDal());
+        MessageManager mm = new MessageManager(new EfMessageDal());
         ContactValidator cv = new ContactValidator();
         public ActionResult Index()
         {
@@ -29,7 +30,14 @@ namespace MVCProjeKampi_UI.Controllers
         public PartialViewResult ContactPartial()
         {
             var messagecount = cm.GetList().Count();
-            ViewBag.sayi = messagecount;
+            ViewBag.iletisim = messagecount;
+
+            var inboxcount = mm.GetListInbox().Count();
+            ViewBag.inbox= inboxcount;
+
+            var sendcount = mm.GetListSendbox().Count();
+            ViewBag.sendbox= sendcount;
+
             return PartialView();
         }
     }
