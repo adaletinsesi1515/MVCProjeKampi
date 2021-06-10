@@ -45,6 +45,7 @@ namespace MVCProjeKampi_UI.Controllers
             ValidationResult result = messageValidator.Validate(p);
             if (result.IsValid)
             {
+                p.MessageDate = DateTime.Now;
                 mm.MessageAddBL(p);
                 return RedirectToAction("Sendbox");
             }
@@ -60,6 +61,6 @@ namespace MVCProjeKampi_UI.Controllers
             return View();
         }
 
-        
+      
     }
 }

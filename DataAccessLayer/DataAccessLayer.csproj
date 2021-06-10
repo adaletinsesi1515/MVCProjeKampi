@@ -96,6 +96,10 @@
     <Compile Include="Migrations\202106071221016_mg_message_content.designer.cs">
       <DependentUpon>202106071221016_mg_message_content.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106100929115_mg_message_allowhtml_att.cs" />
+    <Compile Include="Migrations\202106100929115_mg_message_allowhtml_att.designer.cs">
+      <DependentUpon>202106100929115_mg_message_allowhtml_att.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -130,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106071221016_mg_message_content.resx">
       <DependentUpon>202106071221016_mg_message_content.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106100929115_mg_message_allowhtml_att.resx">
+      <DependentUpon>202106100929115_mg_message_allowhtml_att.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
