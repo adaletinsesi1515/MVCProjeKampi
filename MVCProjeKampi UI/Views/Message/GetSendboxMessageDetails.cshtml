@@ -38,7 +38,7 @@
                                 <h5>Konu:  @Html.TextBoxFor(model => model.Subject, new { @class = "form-control" })    </h5>
 
                                 <h5>
-                                    Gönderen : @Html.TextBoxFor(model => model.SenderMail, new { @class = "form-control" })
+                                    Alıcı : @Html.TextBoxFor(model => model.ReceiverMail, new { @class = "form-control" })
                                 </h5>
                                 <h6>Mesaj Tarihi : @(((DateTime)Model.MessageDate).ToString("dd-MMMMM-yyyy")) </h6>
                             </div>

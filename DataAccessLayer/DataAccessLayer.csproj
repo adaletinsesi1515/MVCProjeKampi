@@ -100,6 +100,10 @@
     <Compile Include="Migrations\202106100929115_mg_message_allowhtml_att.designer.cs">
       <DependentUpon>202106100929115_mg_message_allowhtml_att.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106122049146_mig_contactDate.cs" />
+    <Compile Include="Migrations\202106122049146_mig_contactDate.designer.cs">
+      <DependentUpon>202106122049146_mig_contactDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -137,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106100929115_mg_message_allowhtml_att.resx">
       <DependentUpon>202106100929115_mg_message_allowhtml_att.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106122049146_mig_contactDate.resx">
+      <DependentUpon>202106122049146_mig_contactDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
