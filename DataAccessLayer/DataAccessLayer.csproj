@@ -56,6 +56,7 @@
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202104201157264_1.cs" />
@@ -103,6 +105,10 @@
     <Compile Include="Migrations\202106122049146_mig_contactDate.cs" />
     <Compile Include="Migrations\202106122049146_mig_contactDate.designer.cs">
       <DependentUpon>202106122049146_mig_contactDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106131820466_mig_imagefile_table.cs" />
+    <Compile Include="Migrations\202106131820466_mig_imagefile_table.designer.cs">
+      <DependentUpon>202106131820466_mig_imagefile_table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106122049146_mig_contactDate.resx">
       <DependentUpon>202106122049146_mig_contactDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106131820466_mig_imagefile_table.resx">
+      <DependentUpon>202106131820466_mig_imagefile_table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
