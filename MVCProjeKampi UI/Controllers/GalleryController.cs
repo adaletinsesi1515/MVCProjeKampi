@@ -12,7 +12,9 @@ namespace MVCProjeKampi_UI.Controllers
     {
         // GET: Gallery
 
-        private ImageFileManager Im = new ImageFileManager(new EfImageFileDal());
+        ImageFileManager Im = new ImageFileManager(new EfImageFileDal());
+
+        [Authorize]
         public ActionResult Index()
         {
             var liste = Im.GetList();
