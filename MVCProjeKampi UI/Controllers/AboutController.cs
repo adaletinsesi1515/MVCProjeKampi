@@ -13,6 +13,7 @@ namespace MVCProjeKampi_UI.Controllers
     {
         // GET: About
         public AboutManager abm = new AboutManager(new EfAboutDal());
+        [Authorize]
         public ActionResult Index()
         {
             var values = abm.GetList();
@@ -26,6 +27,7 @@ namespace MVCProjeKampi_UI.Controllers
         }
 
         [HttpPost]
+        
         public ActionResult AddAbout(About p)
         {
             p.AboutStatus = true;

@@ -17,6 +17,7 @@ namespace MVCProjeKampi_UI.Controllers
 
         WriterManager wm = new WriterManager(new EfWriterDal());
         // GET: Heading
+        [Authorize]
         public ActionResult Index()
         {
             var headingvalues = hm.GetList();

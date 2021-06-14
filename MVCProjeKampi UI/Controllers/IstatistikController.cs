@@ -15,6 +15,7 @@ namespace MVCProjeKampi_UI.Controllers
 
         Context db = new Context();
         //CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        [Authorize]
         public ActionResult Index()
         {
             ViewBag.kategorisayisi = db.Categories.Where(x => x.CategoryStatus == true).Count();

@@ -20,6 +20,7 @@ namespace MVCProjeKampi_UI.Controllers
 
 
         // GET: Writer
+        [Authorize]
         public ActionResult Index()
         {
             var listele = wm.GetList();

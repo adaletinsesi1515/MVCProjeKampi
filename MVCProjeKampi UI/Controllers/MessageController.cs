@@ -15,6 +15,7 @@ namespace MVCProjeKampi_UI.Controllers
     {
         // GET: Message
         MessageManager mm = new MessageManager(new EfMessageDal());
+        [Authorize]
         public ActionResult Inbox()
         {
             var messagelist = mm.GetListInbox();

@@ -8,6 +8,7 @@ namespace MVCProjeKampi_UI.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize]
         public ActionResult Index()
         {
             return View();
