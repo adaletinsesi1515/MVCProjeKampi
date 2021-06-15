@@ -25,7 +25,7 @@ namespace BusinessLayer.Concrete
 
         public List<About> GetList()
         {
-            return _aboutDal.List(x => x.AboutStatus== true);
+            return _aboutDal.List();
         }
 
         public void AboutAddBL(About about)

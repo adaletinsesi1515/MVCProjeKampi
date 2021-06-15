@@ -28,6 +28,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public Admin AdminRoles(string kullanici)
+        {
+            return _adminDal.List(x=>x.AdminUserName == kullanici).FirstOrDefault();
+        }
+
         public void AdminUpdate(Admin admin)
         {
             throw new NotImplementedException();
@@ -44,6 +49,11 @@ namespace BusinessLayer.Concrete
         }
 
         public List<Admin> GetList()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IAdminService.AdminRoles(string kullanici)
         {
             throw new NotImplementedException();
         }

@@ -14,5 +14,7 @@ namespace BusinessLayer.Abstract
         void AdminAddBL(Admin admin);
         void AdminDelBl(Admin admin);
         void AdminUpdate(Admin admin);
+
+        void AdminRoles(string kullanici);
     }
 }

@@ -61,7 +61,7 @@ to get the desired effect
             </form>
 
             <!-- Right navbar links -->
-            
+
         </nav>
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
@@ -90,15 +90,20 @@ to get the desired effect
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="/AdminCategory/Index/" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Kategoriler
-                                </p>
-                            </a>
 
-                        </li>
+                        @if (User.IsInRole("B"))
+                        {
+                            <li class="nav-item">
+                                <a href="/AdminCategory/Index/" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Kategoriler
+                                    </p>
+                                </a>
+
+                            </li>
+                        }
+
                         <li class="nav-item">
                             <a href="/Heading/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -171,7 +176,7 @@ to get the desired effect
                                     Yazılar
                                 </p>
                             </a>
-                            
+
                         </li>
                         <li class="nav-header">Admin İşlemleri</li>
                         <li class="nav-item">
@@ -179,7 +184,7 @@ to get the desired effect
                                 <i class="nav-icon fas fa-calendar-alt"></i>
                                 <p>
                                     Yetkilendirmeler
-                                    </p>
+                                </p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -195,20 +200,20 @@ to get the desired effect
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>
                                     Hata sayfası
-                                    
+
                                 </p>
                             </a>
-                            
+
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
                                     Siteye Git
-                                    
+
                                 </p>
                             </a>
-                            
+
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
@@ -217,9 +222,9 @@ to get the desired effect
                                     Çıkış Yap
                                 </p>
                             </a>
-                            
+
                         </li>
-                        
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
