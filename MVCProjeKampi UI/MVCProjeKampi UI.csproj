@@ -2399,6 +2399,16 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Skills_Theme\web\css\style.css" />
+    <Content Include="Skills_Theme\web\images\5.jpg" />
+    <Content Include="Skills_Theme\web\images\img1.jpg" />
+    <Content Include="Skills_Theme\web\images\sprite.png" />
+    <Content Include="Skills_Theme\web\index.html" />
+    <Content Include="Skills_Theme\web\js\bars.js" />
+    <Content Include="Skills_Theme\web\js\easyResponsiveTabs.js" />
+    <Content Include="Skills_Theme\web\js\jquery-1.11.1.min.js" />
+    <Content Include="Skills_Theme\web\js\jquery.circlechart.js" />
+    <Content Include="Skills_Theme\web\w3layouts-License.txt" />
     <Content Include="Views\Istatistik\istatistik ekran.JPG" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
