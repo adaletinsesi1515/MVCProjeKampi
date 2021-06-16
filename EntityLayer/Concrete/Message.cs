@@ -18,11 +18,11 @@ namespace EntityLayer.Concrete
         public string ReceiverMail { get; set; }
         [StringLength(100)]
         public string Subject { get; set; }
-        [StringLength(1000)]
         [AllowHtml]
-        
         public string MessageContent { get; set; }
-        public DateTime MessageDate{ get; set; }
+        public DateTime MessageDate { get; set; }
+        public bool IsDraft { get; set; }
+        public bool IsRead { get; set; }
 
     }
 }
