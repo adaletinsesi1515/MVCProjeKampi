@@ -16,7 +16,6 @@ namespace MVCProjeKampi_UI.Controllers
         MessageManager mm = new MessageManager(new EfMessageDal());
         ContactValidator cv = new ContactValidator();
 
-        [Authorize]
         public ActionResult Index()
         {
             var contactValues = cm.GetList();
