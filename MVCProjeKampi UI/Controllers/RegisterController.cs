@@ -15,6 +15,7 @@ namespace MVCProjeKampi_UI.Controllers
     {
         // GET: Register
         AdminManager adminmanager = new AdminManager(new EfAdminDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
 
         [HttpGet]
         public ActionResult Index()
@@ -33,6 +34,26 @@ namespace MVCProjeKampi_UI.Controllers
             adminmanager.AdminAddBL(p);
             return RedirectToAction("Index", "Login");            
         }
+
+        [HttpGet]
+        public ActionResult WriterRegister()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult WriterRegister(Writer p)
+        {
+            SHA1 sha1 = new SHA1CryptoServiceProvider();
+            string password = p.WriterPassword;
+            string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
+            p.WriterPassword = result;
+            p.WriterStatus = true;
+            p.WriterImage = null;
+            writerManager.WriterAddBL(p);
+            return RedirectToAction("WriterLogin", "Login");
+        }
+
 
     }
 }

@@ -17,6 +17,7 @@ namespace MVCProjeKampi_UI.Controllers
     {
         // GET: Login
         AdminManager am = new AdminManager(new EfAdminDal());
+        WriterManager wm = new WriterManager(new EfWriterDal());
 
         [HttpGet]
         public ActionResult Index()
@@ -49,5 +50,36 @@ namespace MVCProjeKampi_UI.Controllers
 
 
         }
+
+        [HttpGet]
+        public ActionResult WriterLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult WriterLogin(Writer p)
+        {
+            SHA1 sha1 = new SHA1CryptoServiceProvider();
+            string password = p.WriterPassword;
+            string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
+            p.WriterPassword = result;
+
+            Context context = new Context();
+            var writerUserInfo = context.Writers.FirstOrDefault(x => x.WriterMail== p.WriterMail&&
+              x.WriterPassword == result);
+
+
+            if (writerUserInfo != null)
+            {
+                FormsAuthentication.SetAuthCookie(writerUserInfo.WriterMail, false);
+                Session["WriterMail"] = writerUserInfo.WriterMail;
+                return RedirectToAction("MyContent", "WriterPanelContent");
+            }
+
+            ViewBag.ErrorMessage = "Kullanıcı Adı veya Şifreniz Yanlış!";
+            return View();
+        }
+
     }
 }
