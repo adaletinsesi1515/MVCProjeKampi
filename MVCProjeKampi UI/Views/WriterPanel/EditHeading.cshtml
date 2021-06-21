@@ -14,14 +14,14 @@
     @Html.HiddenFor(x => x.WriterID)
 
 
-
+    @Html.Label("Başlığı")
+    @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
     <br />
+ 
     @Html.Label("Kategorisi")
     @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vlcat, new { @class = "form-control" })
     <br />
-    @Html.Label("Başlığı")
-    @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
-    <br />  
+
 
     <button class="btn btn-success">Güncelle</button>
 </div>

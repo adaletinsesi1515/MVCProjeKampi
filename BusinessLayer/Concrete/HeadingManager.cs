@@ -31,7 +31,7 @@ namespace BusinessLayer.Concrete
 
         public List<Heading> GetListByWriter(int id)
         {
-            //.buradaki ID durumu değiştirilecek ileride
+            
             return _headingDal.List(x => x.WriterID == id);
         }
 

@@ -13,11 +13,14 @@ using System.Web.Security;
 
 namespace MVCProjeKampi_UI.Controllers
 {
+    //Genel filitrelemeden muaf tuttuk.
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login
         AdminManager am = new AdminManager(new EfAdminDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
+
 
         [HttpGet]
         public ActionResult Index()

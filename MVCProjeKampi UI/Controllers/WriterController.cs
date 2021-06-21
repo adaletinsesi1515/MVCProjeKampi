@@ -19,8 +19,7 @@ namespace MVCProjeKampi_UI.Controllers
         WriterValidator writerValidator = new WriterValidator();
 
 
-        // GET: Writer
-        [Authorize]
+        // GET: Writer       
         public ActionResult Index()
         {
             var listele = wm.GetList();
