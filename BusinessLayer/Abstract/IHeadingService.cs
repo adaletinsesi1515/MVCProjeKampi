@@ -11,7 +11,7 @@ namespace BusinessLayer.Abstract
     {
         Heading GetById(int id);
         List<Heading> GetList();
-        List<Heading> GetListByWriter();
+        List<Heading> GetListByWriter(int id);
         void HeadingAddBL(Heading heading);
         void HeadingDelBl(Heading heading);
         void HeadingUpdBl(Heading heading);

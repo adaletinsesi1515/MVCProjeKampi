@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -16,15 +17,21 @@ namespace MVCProjeKampi_UI.Controllers
         // GET: WriterPanelMessage
         MessageManager mm = new MessageManager(new EfMessageDal());
         MessageValidator messageValidator = new MessageValidator();
-        public ActionResult Inbox()
+        public ActionResult Inbox(string p)
         {
-            var messagelist = mm.GetListInbox();
+            Context c = new Context();
+            p = (string)Session["WriterMail"];
+            var liste = c.Messages.Where(x => x.ReceiverMail == p).Select(y => y.ReceiverMail).FirstOrDefault();
+            var messagelist = mm.GetListInbox(liste);
             return View(messagelist);
         }
 
-        public ActionResult Sendbox()
+        public ActionResult Sendbox(string p)
         {
-            var messagelist = mm.GetListSendbox();
+            Context c = new Context();
+            p = (string)Session["WriterMail"];
+            var liste = c.Messages.Where(x => x.SenderMail == p).Select(y => y.SenderMail).FirstOrDefault();
+            var messagelist = mm.GetListSendbox(liste);
             return View(messagelist);
         }
 
@@ -51,13 +58,14 @@ namespace MVCProjeKampi_UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewMessage(Message p)
+        public ActionResult NewMessage(Message p, string p1)
         {
             MessageValidator messageValidator = new MessageValidator();
             ValidationResult result = messageValidator.Validate(p);
             if (result.IsValid)
             {
-                p.SenderMail = "memduh@gmail.com";
+                p1 = (string)Session["WriterMail"];
+                p.SenderMail = p1;
                 p.MessageDate = DateTime.Now;
                 mm.MessageAddBL(p);
                 return RedirectToAction("Sendbox");

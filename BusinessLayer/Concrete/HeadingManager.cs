@@ -29,10 +29,10 @@ namespace BusinessLayer.Concrete
             return _headingDal.List();
         }
 
-        public List<Heading> GetListByWriter()
+        public List<Heading> GetListByWriter(int id)
         {
             //.buradaki ID durumu değiştirilecek ileride
-            return _headingDal.List(x => x.WriterID == 1);
+            return _headingDal.List(x => x.WriterID == id);
         }
 
         public void HeadingAddBL(Heading heading)

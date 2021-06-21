@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -21,9 +22,12 @@ namespace MVCProjeKampi_UI.Controllers
             return View();
         }
 
-        public ActionResult MyHeading()
+        public ActionResult MyHeading(string p)
         {
-            var values = headingManager.GetListByWriter();
+            Context c = new Context();
+            p = (string)Session["WriterMail"];
+            var idinfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
+            var values = headingManager.GetListByWriter(idinfo);
             return View(values);
         }
 
