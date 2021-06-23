@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EntityLayer.Concrete;
 
 namespace MVCProjeKampi_UI.Controllers
 {
@@ -24,5 +25,27 @@ namespace MVCProjeKampi_UI.Controllers
             return View(contentvalues);
 
         }
+
+        [HttpGet]
+        public ActionResult AddContent(int id)
+        {
+            ViewBag.deger = id;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddContent(Content p)
+        {
+            Context c = new Context();
+            string writermailinfo = (string)Session["WriterMail"];
+            var writeridinfo = c.Writers.Where(x => x.WriterMail == writermailinfo).Select(y => y.WriterID).FirstOrDefault();
+
+            p.ContentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            p.ContentStatus= true;
+            p.WriterID = writeridinfo;
+            contentManager.ContentAddBL(p);
+            return RedirectToAction("MyContent");
+        }
+
     }
 }

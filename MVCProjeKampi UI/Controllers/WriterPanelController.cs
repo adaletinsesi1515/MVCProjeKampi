@@ -101,6 +101,12 @@ namespace MVCProjeKampi_UI.Controllers
         }
 
 
+        public ActionResult AllHeading()
+        {
+            var headings = headingManager.GetList();
+            return View(headings);
+        }
+
 
     }
 }

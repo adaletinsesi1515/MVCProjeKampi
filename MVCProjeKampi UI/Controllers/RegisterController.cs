@@ -36,12 +36,14 @@ namespace MVCProjeKampi_UI.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult WriterRegister()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult WriterRegister(Writer p)
         {
             SHA1 sha1 = new SHA1CryptoServiceProvider();

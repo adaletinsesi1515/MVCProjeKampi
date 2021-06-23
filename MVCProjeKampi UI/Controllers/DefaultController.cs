@@ -14,14 +14,17 @@ namespace MVCProjeKampi_UI.Controllers
         // GET: Default
         
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
+        private ContentManager contentManager = new ContentManager(new EfContentDal());
         public ActionResult Headings()
         {
             var listele = headingManager.GetList();
             return View(listele);
         }
-        public ActionResult Index()
+        public PartialViewResult Index(int id=0)
         {
-            return View();
+            var contentlist = contentManager.GetListById(id);
+            return PartialView(contentlist);
         }
+
     }
 }

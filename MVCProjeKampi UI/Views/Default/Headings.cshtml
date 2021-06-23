@@ -69,7 +69,7 @@ to get the desired effect
 
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">                                
+                            <a href="/Default/Headings/@item.HeadingID" class="nav-link">                                
                                 <p>
                                     @item.HeadingName (0)
                                 </p>
@@ -90,6 +90,10 @@ to get the desired effect
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
+
+            @Html.Action("Index","Default")
+
+
             <div class="content-header">
                 <div class="container-fluid">
                     <!-- /.row -->
