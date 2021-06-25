@@ -1,5 +1,8 @@
 ﻿@using EntityLayer.Concrete
-@model List<Heading>
+@using PagedList;
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<Heading>
 
 
 @{
@@ -121,7 +124,7 @@
                                         </i>
                                         Bu Başlığa Yaz
                                     </a>
-                            
+
 
                                 </td>
                             </tr>
@@ -136,7 +139,12 @@
 </body>
 </html>
 <a href="/WriterPanel/NewHeading/" class="btn btn-success">Yeni Başlık Ekle</a>
+<br />
 
+@Html.PagedListPager((IPagedList)Model, p=>Url.Action("AllHeading", new { p }), new PagedListRenderOptions
+{
+    LiElementClasses=new List<string> { "page-link"}
+})
 
 
 

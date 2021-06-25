@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MVCProjeKampi_UI.Controllers
 {
@@ -101,9 +103,10 @@ namespace MVCProjeKampi_UI.Controllers
         }
 
 
-        public ActionResult AllHeading()
+        public ActionResult AllHeading(int p=1)
         {
-            var headings = headingManager.GetList();
+
+            var headings = headingManager.GetList().ToPagedList(p,4);
             return View(headings);
         }
 
