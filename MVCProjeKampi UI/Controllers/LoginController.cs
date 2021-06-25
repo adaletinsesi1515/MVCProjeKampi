@@ -20,6 +20,7 @@ namespace MVCProjeKampi_UI.Controllers
         // GET: Login
         AdminManager am = new AdminManager(new EfAdminDal());
         WriterManager wm = new WriterManager(new EfWriterDal());
+        WriterLoginManager writerLoginManager = new WriterLoginManager(new EfWriterDal());
 
 
         [HttpGet]
@@ -68,10 +69,8 @@ namespace MVCProjeKampi_UI.Controllers
             string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
             p.WriterPassword = result;
 
-            Context context = new Context();
-            var writerUserInfo = context.Writers.FirstOrDefault(x => x.WriterMail== p.WriterMail&&
-              x.WriterPassword == result);
 
+            var writerUserInfo = writerLoginManager.GetWriter(p.WriterMail, result);
 
             if (writerUserInfo != null)
             {
