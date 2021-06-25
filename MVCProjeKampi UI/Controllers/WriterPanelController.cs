@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using PagedList.Mvc;
+using BusinessLayer.ValidationRules;
+using FluentValidation.Results;
 
 namespace MVCProjeKampi_UI.Controllers
 {
@@ -18,13 +20,47 @@ namespace MVCProjeKampi_UI.Controllers
 
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
+        WriterValidator writerValidator = new WriterValidator();
         Context c = new Context();
         
+        [HttpGet]
         public ActionResult WriterProfile()
         {
-            return View();
+            int id;
+            string p = (string)Session["WriterMail"];
+            id = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
+            var idvalue = writerManager.GetById(id);
+            return View(idvalue);
         }
 
+        [HttpPost]
+        public ActionResult WriterProfile(Writer p)
+        {
+            ValidationResult result = writerValidator.Validate(p);
+            if (result.IsValid)
+            {
+                //if (WriterImage.ContentLength > 0)
+                //{
+                //    var image = Path.GetFileName(WriterImage.FileName);
+                //    var path = Path.Combine(Server.MapPath("~/Images"), image);
+                //    WriterImage.SaveAs(path);
+                //    p.WriterImage = "/Images/" + image;
+
+                //}
+                p.WriterStatus = true;
+                writerManager.WriterUpdate(p);
+                return RedirectToAction("AllHeading", "WriterPanel");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+        }
         public ActionResult MyHeading(string p)
         {
             
