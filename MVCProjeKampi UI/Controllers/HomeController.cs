@@ -27,5 +27,11 @@ namespace MVCProjeKampi_UI.Controllers
 
             return View();
         }
+
+        [AllowAnonymous]
+        public ActionResult HomeDefault()
+        {
+            return View();
+        }
     }
 }
