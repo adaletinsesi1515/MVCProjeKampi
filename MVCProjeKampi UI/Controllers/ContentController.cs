@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MVCProjeKampi_UI.Controllers
 {
+    [AllowAnonymous]
     public class ContentController : Controller
     {
         // GET: Content
@@ -24,6 +25,21 @@ namespace MVCProjeKampi_UI.Controllers
         {
             var listele = cm.GetListById(Id);
             return View(listele);
+        }
+
+
+        [HttpGet]
+        public ActionResult GetAllContent()
+        {
+            var values = cm.GetList();
+            return View(values);
+        }
+
+        [HttpPost]
+        public ActionResult GetAllContent(string p)
+        {
+            var values = cm.GetList(p);
+            return View(values);
         }
 
     }
