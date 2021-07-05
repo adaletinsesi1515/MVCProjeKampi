@@ -11,8 +11,10 @@ using System.Web.Mvc;
 
 namespace MVCProjeKampi_UI.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
+        
         // GET: Register
         AdminManager adminmanager = new AdminManager(new EfAdminDal());
         WriterManager writerManager = new WriterManager(new EfWriterDal());
