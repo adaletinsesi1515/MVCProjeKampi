@@ -50,7 +50,8 @@ namespace BusinessLayer.Concrete
 
         public List<Admin> GetList()
         {
-            throw new NotImplementedException();
+            var liste = _adminDal.List();
+            return liste;
         }
 
         void IAdminService.AdminRoles(string kullanici)

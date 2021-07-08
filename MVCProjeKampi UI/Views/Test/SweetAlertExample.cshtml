@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "SweetAlertExample";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/AdminLTE-3.0.4/web/js/jquery-2.2.3.min.js"></script>
+
+<br />
+<button class="btn btn-danger" id="buton1">Test Buton 1</button>
+<button class="btn btn-success" id="buton2">Test Buton 2</button>
+<button class="btn btn-default" id="buton3">Test Buton 3</button>
+<button class="btn btn-default" id="buton4">Test Buton 4</button>
+<button class="btn btn-default" id="buton5">Test Buton 5</button>
+<button class="btn btn-default" id="buton6">Test Buton 6</button>
+
+
+<script>
+    $('#buton1').click(function () {
+        swal("Hello MVC Kamp")
+    });
+</script>
+
+<script>
+    $('#buton2').click(function () {
+        swal("Here's the title!", "...and here's the text!");
+    });
+</script>
+
+<script>
+    $('#buton3').click(function () {
+        swal("Good job!", "You clicked the button!", "success");
+    });
+</script>
+
+<script>
+    $('#buton4').click(function () {
+        swal({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success",
+        });
+    });
+</script>
+
+<script>
+    $('#buton5').click(function () {
+        swal({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success",
+            button: "Aww yiss!",
+        });
+    });
+</script>
+
+<script>
+    $('#buton6').click(function () {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Poof! Your imaginary file has been deleted!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Your imaginary file is safe!");
+                }
+            });
+    });
+</script>
